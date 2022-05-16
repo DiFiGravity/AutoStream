@@ -22,7 +22,6 @@ function RateForm() {
         <Select
           label="Token"
           defaultChecked={true}
-          
           data={[
             { value: "BTC", label: "BTC" },
             { value: "Matic", label: "Matic" },

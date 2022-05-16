@@ -1,5 +1,4 @@
 import React from "react";
-import {Wallet} from "tabler-icons-react";
 import {
   AppShell,
   Navbar,
@@ -7,12 +6,12 @@ import {
   Group,
   ActionIcon,
   useMantineColorScheme,
-  Button,
 } from "@mantine/core";
 import { MainLinks } from "./../src/components/_mainLinks";
 // import { User } from './_user';
 import { Logo } from "./../src/components/_logo";
 import RateForm from "./../src/pages/RateForm";
+import ConnectWalletButton from "./components/ConnectWalletButton";
 
 function App() {
   return (
@@ -34,9 +33,7 @@ function App() {
         <Header height={60}>
           <Group sx={{ height: "100%" }} px={20} position="apart">
             <Logo />
-            <Button leftIcon={<Wallet />}>
-              Connect to wallet
-            </Button>
+            <ConnectWalletButton />
           </Group>
         </Header>
       }

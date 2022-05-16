@@ -1,15 +1,21 @@
-import { React, createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import * as types from "./types";
 
-const initialState = {
+interface IState {
+  web3Provider?: any;
+  state?: any;
+  dispatch?: any;
+}
+
+const initialState:IState = {
   web3Provider: null,
 };
 
 const store = createContext(initialState);
 const { Provider } = store;
 
-const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer((state, action) => {
+const StateProvider = ({ children }:any)=> {
+  const [state, dispatch] = useReducer((state: any, action: {type: any, value: any}) => {
     switch (action.type) {
       case types.SET_WEB3_PROVIDER:
         return { ...state, web3Provider: action.value };
@@ -18,7 +24,6 @@ const StateProvider = ({ children }) => {
         throw new Error();
     }
   }, initialState);
-
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
