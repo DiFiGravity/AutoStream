@@ -1,5 +1,5 @@
 import React from "react";
-import { Sun, MoonStars } from "tabler-icons-react";
+import {Wallet} from "tabler-icons-react";
 import {
   AppShell,
   Navbar,
@@ -7,6 +7,7 @@ import {
   Group,
   ActionIcon,
   useMantineColorScheme,
+  Button,
 } from "@mantine/core";
 import { MainLinks } from "./../src/components/_mainLinks";
 // import { User } from './_user';
@@ -16,6 +17,7 @@ import RateForm from "./../src/pages/RateForm";
 function App() {
   return (
     <AppShell
+      style={{height: '100%'}}
       padding="md"
       navbar={
         <Navbar width={{ base: 300 }} height={500} p="xs">
@@ -32,11 +34,9 @@ function App() {
         <Header height={60}>
           <Group sx={{ height: "100%" }} px={20} position="apart">
             <Logo />
-            <ActionIcon
-              variant="default"
-              onClick={() => {}}
-              size={30}
-            ></ActionIcon>
+            <Button leftIcon={<Wallet />}>
+              Connect to wallet
+            </Button>
           </Group>
         </Header>
       }
