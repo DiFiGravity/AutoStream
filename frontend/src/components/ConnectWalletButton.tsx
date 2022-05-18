@@ -33,11 +33,11 @@ const ConnectWalletButton = () => {
     <>
       {existingProvider ? (
         <Button onClick={onLogoutWallet} leftIcon={<Wallet />}>
-          <span className="nav-link-inner--text ml-1">Disconnect</span>
+          <span className="nav-link-inner--text ml-1">Disconnect Wallet</span>
         </Button>
       ) : (
         <Button onClick={onConnectWallet}>
-          <span className="nav-link-inner--text ml-1">Connect</span>
+          <span className="nav-link-inner--text ml-1">Connect Wallet</span>
         </Button>
       )}
     </>

@@ -4,16 +4,22 @@ import {
   AlertCircle,
   Messages,
   Database,
+  ListDetails,
+  NewSection,
 } from "tabler-icons-react";
 import { ThemeIcon, UnstyledButton, Group, Text } from "@mantine/core";
-
+import { Link, useNavigate } from "react-router-dom";
 interface MainLinkProps {
   icon: React.ReactNode;
   color: string;
   label: string;
+  route: string;
 }
 
-function MainLink({ icon, color, label }: MainLinkProps) {
+function MainLink({ icon, color, label, route }: MainLinkProps) {
+
+  const navigate = useNavigate();
+
   return (
     <UnstyledButton
       sx={(theme) => ({
@@ -31,6 +37,7 @@ function MainLink({ icon, color, label }: MainLinkProps) {
               : theme.colors.gray[0],
         },
       })}
+      onClick={() => {navigate(route)}}
     >
       <Group>
         <ThemeIcon color={color} variant="light">
@@ -44,10 +51,8 @@ function MainLink({ icon, color, label }: MainLinkProps) {
 }
 
 const data = [
-  { icon: <GitPullRequest size={16} />, color: "blue", label: "Pull Requests" },
-  { icon: <AlertCircle size={16} />, color: "teal", label: "Open Issues" },
-  { icon: <Messages size={16} />, color: "violet", label: "Discussions" },
-  { icon: <Database size={16} />, color: "grape", label: "Databases" },
+  { icon: <NewSection size={16} />, color: "teal", label: "Create Order", route: "/" },
+  { icon: <ListDetails size={16} />, color: "blue", label: "Activity", route: "/activity" },
 ];
 
 export function MainLinks() {
