@@ -1,6 +1,5 @@
 import React from "react";
 import { AppShell, ActionIcon, useMantineColorScheme } from "@mantine/core";
-import { Logo } from "./../src/components/_logo";
 import RateForm from "./../src/pages/RateForm";
 import ConnectWalletButton from "./components/ConnectWalletButton";
 import { StateProvider } from "./store/store";

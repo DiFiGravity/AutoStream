@@ -1,4 +1,13 @@
-import { TextInput, Checkbox, Button, Group, Box, Select, Image, Text } from "@mantine/core";
+import {
+  TextInput,
+  Checkbox,
+  Button,
+  Group,
+  Box,
+  Select,
+  Image,
+  Text,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 import path from "path";
 import React from "react";
@@ -7,12 +16,12 @@ import Icon from "react-crypto-icons";
 import { pathToFileURL } from "url";
 
 const tokens = [
-  {image: "../resources/logos/btc.png", value: "BTC", label: "BTC"},
-  {image: "../resources/logos/matic.png", value: "Matic", label: "Matic"},
-  {image: "../resources/logos/usdc.png", value: "USDC", label: "USDC"},
-]
+  { value: "btc", label: "BTC" },
+  { value: "matic", label: "Matic" },
+  { value: "usdc", label: "USDC" },
+];
 
-interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
+interface ItemProps extends React.ComponentPropsWithoutRef<"div"> {
   image: string;
   value: string;
   label: string;
@@ -22,7 +31,7 @@ const selectItem = forwardRef<HTMLDivElement, ItemProps>(
   ({ image, value, label, ...others }: ItemProps, ref) => (
     <div ref={ref} {...others}>
       <Group noWrap>
-        <Image src={image} />
+        <Icon name={value} size={16} />
 
         <div>
           <Text size="sm">{label}</Text>
@@ -47,7 +56,6 @@ function RateForm() {
   return (
     <Box sx={{ maxWidth: 300 }} mx="auto">
       <form onSubmit={form.onSubmit((values) => console.log(values))}>
-
         <Select
           label="Token"
           placeholder="Select a token"
@@ -73,17 +81,13 @@ function RateForm() {
           type="number"
         />
 
-        <TextInput
-          required
-          label="Rate"
-          placeholder="USD/day"
-          type="number"
-        />
-
+        <TextInput required label="Rate" placeholder="USD/day" type="number" />
 
         <Group position="center" mt="md">
           <Button>Approve</Button>
-          <Button type="submit" disabled={false}>Submit</Button>
+          <Button type="submit" disabled={false}>
+            Submit
+          </Button>
         </Group>
       </form>
     </Box>

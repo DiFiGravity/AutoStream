@@ -1,7 +1,6 @@
 import { Navbar } from "@mantine/core";
 import { MainLinks } from "./MainLinks";
 
-
 function NavBar() {
   return (
     <Navbar width={{ base: 300 }} height={500} p="xs">

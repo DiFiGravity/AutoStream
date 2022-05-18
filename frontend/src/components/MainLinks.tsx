@@ -17,7 +17,6 @@ interface MainLinkProps {
 }
 
 function MainLink({ icon, color, label, route }: MainLinkProps) {
-
   const navigate = useNavigate();
 
   return (
@@ -37,7 +36,9 @@ function MainLink({ icon, color, label, route }: MainLinkProps) {
               : theme.colors.gray[0],
         },
       })}
-      onClick={() => {navigate(route)}}
+      onClick={() => {
+        navigate(route);
+      }}
     >
       <Group>
         <ThemeIcon color={color} variant="light">
@@ -51,8 +52,18 @@ function MainLink({ icon, color, label, route }: MainLinkProps) {
 }
 
 const data = [
-  { icon: <NewSection size={16} />, color: "teal", label: "Create Order", route: "/" },
-  { icon: <ListDetails size={16} />, color: "blue", label: "Activity", route: "/activity" },
+  {
+    icon: <NewSection size={16} />,
+    color: "teal",
+    label: "Create Order",
+    route: "/",
+  },
+  {
+    icon: <ListDetails size={16} />,
+    color: "blue",
+    label: "Activity",
+    route: "/activity",
+  },
 ];
 
 export function MainLinks() {
