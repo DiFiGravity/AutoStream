@@ -1,1 +1,3 @@
 # AutoStream
+
+Streaming payments, automated.
